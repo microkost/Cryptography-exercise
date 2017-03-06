@@ -1,6 +1,18 @@
-Toto je projekt pøedmìtu KPB studenta kos0148,
-program je uivatelskı pøívìtivı a není k nìmu potøeba dokumentace.
-Všechny základní pøípady jsou uvedeny v GUI.
-Mezi variantami se pøepíná ve hierarchii projektu polokou "set as default project".
-Pouité abecedy jsou anglickı lower case.
-Pøíjemné chvíle s programem pøeje autor.
+CZECH
+Toto je projekt pÅ™edmÄ›tu 460-4046/02 â€“ Kryptografie a poÄÃ­taÄovÃ¡ bezpeÄnost (KPB) na VÅ B studenta Ivo KosteckÃ½,
+https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-4046%2F02&studyPlanId=19916&locale=cs
+program je uÅ¾ivatelskÃ½ pÅ™Ã­vÄ›tivÃ½ a nenÃ­ k nÄ›mu potÅ™eba dokumentace.
+VÅ¡echny zÃ¡kladnÃ­ pÅ™Ã­pady jsou uvedeny v GUI.
+Mezi variantami se pÅ™epÃ­nÃ¡ pomocÃ­ GUI.
+PouÅ¾itÃ© abecedy jsou anglickÃ½ lower case.
+PÅ™Ã­jemnÃ© chvÃ­le s programem pÅ™eje autor.
+SlouÅ¾Ã­ pouze k DEMOSTRACI algoritmÅ¯, program nenÃ­ zamÃ½Å¡len k produkÄnÃ­mu uÅ¾ivatelskÃ©mu pouÅ¾itÃ­.
+
+ENGLISH
+This is exercice to class 460-4046/02 â€“ Cryptography and Computer Security (KPB) on Technical university of Ostrava by Ivo KosteckÃ½
+https://edison.sso.vsb.cz/cz.vsb.edison.edu.study.prepare.web/SubjectVersion.faces?version=460-4046%2F02&studyPlanId=19916&locale=en
+Application is userfriendly and doesnt need extra documentation
+Basic use cases are showed in GUI.
+Protection of inserted texts is low! Be carefull, mostly designed for lowercased english alphabet only.
+Nice moments with this program wishes author.
+DEMONSTRATION ONLY not intended for production use.
