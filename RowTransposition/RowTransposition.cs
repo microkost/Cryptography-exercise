@@ -70,12 +70,15 @@ namespace RowTransposition
             }
 
             textBox1.Text = output;
+            textBox2.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (linesOriginal.Count == 0)
-                buttonAlign_Click(sender, e);                      
+                buttonAlign_Click(sender, e);
+
+            linesPermutated.Clear(); //reset
 
             foreach(char c in textBoxEncKey.Text) //parsing numbers, checking number
             {
