@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailFence", "RailFence\RailFence.csproj", "{B8B9C9C8-5BD5-4256-B934-7A0909933DEE}"
 EndProject
@@ -9,6 +9,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicCiphers", "BasicCiphers\BasicCiphers.csproj", "{D20042C1-993C-460E-A79F-464A0404AC20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainGUI", "MainGUI\MainGUI.csproj", "{0BEAA1A4-3951-441E-A6C3-14002047AC08}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C351E891-137B-4DC5-B233-7BD79C2BA600} = {C351E891-137B-4DC5-B233-7BD79C2BA600}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipher", "CaesarCipher\CaesarCipher.csproj", "{C351E891-137B-4DC5-B233-7BD79C2BA600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,8 +37,15 @@ Global
 		{0BEAA1A4-3951-441E-A6C3-14002047AC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BEAA1A4-3951-441E-A6C3-14002047AC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BEAA1A4-3951-441E-A6C3-14002047AC08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C351E891-137B-4DC5-B233-7BD79C2BA600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C351E891-137B-4DC5-B233-7BD79C2BA600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C351E891-137B-4DC5-B233-7BD79C2BA600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C351E891-137B-4DC5-B233-7BD79C2BA600}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B85A6602-20EB-4B0A-AA3A-917D3327A1F8}
 	EndGlobalSection
 EndGlobal

@@ -1,18 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-/*
-using BasicCiphers;
-using RailFence;
-using RowTransposition;
-*/
 
 namespace MainGUI
 {
@@ -39,6 +26,12 @@ namespace MainGUI
         {
             RowTransposition.RowTransposition f3 = new RowTransposition.RowTransposition();
             f3.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CaesarCipher.CaesarCipher f4 = new CaesarCipher.CaesarCipher();          
+            f4.Show();
         }
     }
 }

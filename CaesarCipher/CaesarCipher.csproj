@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0BEAA1A4-3951-441E-A6C3-14002047AC08}</ProjectGuid>
+    <ProjectGuid>{C351E891-137B-4DC5-B233-7BD79C2BA600}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MainGUI</RootNamespace>
-    <AssemblyName>MainGUI</AssemblyName>
+    <RootNamespace>CaesarCipher</RootNamespace>
+    <AssemblyName>CaesarCipher</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainGUI.cs">
+    <Compile Include="CaesarCipher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainGUI.Designer.cs">
-      <DependentUpon>MainGUI.cs</DependentUpon>
+    <Compile Include="CaesarCipher.Designer.cs">
+      <DependentUpon>CaesarCipher.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainGUI.resx">
-      <DependentUpon>MainGUI.cs</DependentUpon>
+    <EmbeddedResource Include="CaesarCipher.resx">
+      <DependentUpon>CaesarCipher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,24 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BasicCiphers\BasicCiphers.csproj">
-      <Project>{d20042c1-993c-460e-a79f-464a0404ac20}</Project>
-      <Name>BasicCiphers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CaesarCipher\CaesarCipher.csproj">
-      <Project>{c351e891-137b-4dc5-b233-7bd79c2ba600}</Project>
-      <Name>CaesarCipher</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RailFence\RailFence.csproj">
-      <Project>{b8b9c9c8-5bd5-4256-b934-7a0909933dee}</Project>
-      <Name>RailFence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RowTransposition\RowTransposition.csproj">
-      <Project>{78ccfda2-f24c-46d4-8b3a-cff267fa279b}</Project>
-      <Name>RowTransposition</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -21,88 +21,9 @@ namespace BasicCiphers
         {
             InitializeComponent();
             key = new List<int>();
-            substitutedAlphabet = new List<char>(); //new List<char>();
-
-            numericUpDown1.Maximum = alphabet.Count - 1;
+            substitutedAlphabet = new List<char>(); //new List<char>();            
         }
-
-        private void button1_Click(object sender, EventArgs e) //CAESAR
-        {
-            textBox2.Text = ShiftCrypt(textBox1.Text.ToLower(), (int)numericUpDown1.Value);
-            textBox1.Text = "";
-        }
-
-        public static char moveInAlphabet(char c, int shift) //returning shifted letter for all functions
-        {
-            int position = alphabet.IndexOf(c); //actual position of char
-            shift += alphabet.Count; //remove negative
-            return alphabet[(position + shift) % alphabet.Count];
-
-            //overkill version
-            /*if (shift >= 0)
-            {
-                if (position <= ((alphabet.Count - 1) - shift)) //protection of end of alphabet
-                {
-                    position += shift; //if fits just shift
-                }
-                else
-                {
-                    int rest = (alphabet.Count - 1) - position; //magic math of new position //what about -1?
-                    int shiftfromstart = shift - rest;
-                    position = 0 + shiftfromstart;
-                }
-            }
-            else
-            {
-                if (position + shift >= 0) //number - (-shift)
-                {
-                    position += shift;
-                }
-                else
-                {
-                    int rest = (-1) * shift - position;
-                    position = (alphabet.Count - 1) - rest;
-                }
-            }
-
-            return alphabet[position];
-            */
-        }
-
-        public static string ShiftCrypt(string input, int shift)  //CAESAR
-        {
-            if (input == null || input.Length == 0)
-                return "";
-
-            string output = "";
-            foreach (char c in input)
-            {
-                if (c == ' ') //remove spaces
-                    continue;
-
-                if (!alphabet.Contains(c)) //remove numbers etc
-                {
-                    return "String contains non letter characters!";
-                }
-
-                output += moveInAlphabet(c, shift); //add new char on shifted position
-            }
-
-            return output;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = ShiftDeCrypt(textBox2.Text.ToLower(), (int)numericUpDown1.Value);
-            textBox2.Text = "";
-        }
-
-        public static string ShiftDeCrypt(string input, int shift)
-        {
-            return ShiftCrypt(input, shift * (-1));
-        }
-
-
+        
         private void button5_Click(object sender, EventArgs e) //crypt One Pad
         {
             Tuple<string, byte[]> crypt = OnePadCrypt(textBox1.Text);            
@@ -234,6 +155,40 @@ namespace BasicCiphers
 
             textBox1.Text = result;
             textBox2.Text = "";
+        }
+
+        public static string ShiftCrypt(string input, int shift) //duplicated, also in Caesar
+        {
+            if (input == null || input.Length == 0)
+                return "";
+
+            string output = "";
+            foreach (char c in input)
+            {
+                if (c == ' ') //remove spaces
+                    continue;
+
+                if (!alphabet.Contains(c)) //remove numbers etc
+                {
+                    return "String contains non letter characters!";
+                }
+
+                output += moveInAlphabet(c, shift); //add new char on shifted position
+            }
+
+            return output;
+        }
+
+        public static string ShiftDeCrypt(string input, int shift) //duplicated, also in Caesar
+        {
+            return ShiftCrypt(input, shift * (-1));
+        }
+        
+        public static char moveInAlphabet(char c, int shift) //returning shifted letter for all functions //duplicated, also in Caesar
+        {
+            int position = alphabet.IndexOf(c); //actual position of char
+            shift += alphabet.Count; //remove negative
+            return alphabet[(position + shift) % alphabet.Count];
         }
     }
 }
