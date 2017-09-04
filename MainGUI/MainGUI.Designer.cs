@@ -75,13 +75,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(246, 57);
+            this.label1.Location = new System.Drawing.Point(177, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(183, 17);
+            this.label1.Size = new System.Drawing.Size(252, 17);
             this.label1.TabIndex = 3;
-            this.label1.Text = "OnePad and Vignier cypher";
+            this.label1.Text = "OnePad, substitute and Vignier cypher";
             // 
             // label2
             // 

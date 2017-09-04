@@ -12,23 +12,29 @@ namespace CaesarCipher
 {
     public partial class CaesarCipher : Form
     {
-        public static List<char> alphabet = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        public static List<char> alphabet = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
         public CaesarCipher()
         {
             InitializeComponent();
             numericUpDown1.Maximum = alphabet.Count - 1;
+
+            textBoxAplhabet.Text = String.Join(", ", alphabet); //showing alphabet to user only
         }
 
-        private void button1_Click(object sender, EventArgs e) //caesar
+        private void button1_Click(object sender, EventArgs e) //caesar button
         {
-            textBox2.Text = ShiftCrypt(textBox1.Text.ToLower(), (int)numericUpDown1.Value);
+            textBox2.Text = ShiftCrypt(textBox1.Text, (int)numericUpDown1.Value);
             textBox1.Text = "";
+
+            textBoxAplhabetShift.Text = ShiftCrypt(String.Join(", ", alphabet), (int)numericUpDown1.Value); //showing shifted alphabet to user only
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //caesar button
         {
-            textBox1.Text = ShiftDeCrypt(textBox2.Text.ToLower(), (int)numericUpDown1.Value);
+            textBox1.Text = ShiftDeCrypt(textBox2.Text, (int)numericUpDown1.Value);
             textBox2.Text = "";
+
+            textBoxAplhabetShift.Text = ShiftCrypt(String.Join(", ", alphabet), (int)numericUpDown1.Value); //showing shifted alphabet to user only
         }
 
         public static string ShiftCrypt(string input, int shift)  //CAESAR
@@ -40,11 +46,15 @@ namespace CaesarCipher
             foreach (char c in input)
             {
                 if (c == ' ') //remove spaces
-                    continue;
-
-                if (!alphabet.Contains(c)) //remove numbers etc
                 {
-                    return "String contains non letter characters!";
+                    output += c; //dont shift spaces
+                    continue;
+                }
+
+                if (!alphabet.Contains(c)) //remove numbers and special characters etc
+                {
+                    output += c; //dont shift other characters
+                    continue;
                 }
 
                 output += moveInAlphabet(c, shift); //add new char on shifted position
@@ -63,6 +73,43 @@ namespace CaesarCipher
             int position = alphabet.IndexOf(c); //actual position of char
             shift += alphabet.Count; //remove negative
             return alphabet[(position + shift) % alphabet.Count];
+        }
+
+        //----------------------------------------------------------------BRUTE-FORCE
+
+        public List<String> bruteForceVariants = new List<String>();
+        private void button3_Click(object sender, EventArgs e)
+        {            
+            richTextBox1.Text = ""; //reset ofoutput window
+
+            int numberOfTrials = (bruteForceVariants.Count > alphabet.Count) ? bruteForceVariants.Count : alphabet.Count;
+            
+            for (int i = 0; i < numberOfTrials; i++) //make a list of possible variants
+            {
+                bruteForceVariants.Add(ShiftCrypt(textBox3.Text, i));
+            }
+                      
+            for (int i = 0; i < numberOfTrials; i++) //printing and searching for matchies
+            {
+
+                string insertText = String.Format(("Key {0}:\t {1},{2}"), i, bruteForceVariants[i], Environment.NewLine); //line output form
+
+                if((textBox4.Text == null || textBox4.Text == "")) //when help word not provided
+                {
+                    richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Regular);
+                }
+                else if (bruteForceVariants[i].ToLower().Contains(textBox4.Text.ToLower())) //when match founded, highlight every matchi in lower case!
+                {
+                    richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Regular);
+                }
+
+                richTextBox1.AppendText(insertText);
+            }
+
         }
 
     }
