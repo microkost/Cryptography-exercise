@@ -13,12 +13,16 @@ namespace CaesarCipher
     public partial class CaesarCipher : Form
     {
         public static List<char> alphabet = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+        private int numberOfBruteIterations { get; set; }
         public CaesarCipher()
         {
             InitializeComponent();
-            numericUpDown1.Maximum = alphabet.Count - 1;
 
+            numericUpDown1.Maximum = alphabet.Count - 1; //shift feature
             textBoxAplhabet.Text = String.Join(", ", alphabet); //showing alphabet to user only
+
+            numberOfBruteIterations = 1000; //brute force calculation
+            numericUpDown2.Value = numberOfBruteIterations;
         }
 
         private void button1_Click(object sender, EventArgs e) //caesar button
@@ -81,17 +85,14 @@ namespace CaesarCipher
         private void button3_Click(object sender, EventArgs e)
         {            
             richTextBox1.Text = ""; //reset ofoutput window
-
-            int numberOfTrials = (bruteForceVariants.Count > alphabet.Count) ? bruteForceVariants.Count : alphabet.Count;
-            
-            for (int i = 0; i < numberOfTrials; i++) //make a list of possible variants
+           
+            for (int i = 0; i < numberOfBruteIterations; i++) //make a list of possible variants
             {
                 bruteForceVariants.Add(ShiftCrypt(textBox3.Text, i));
             }
                       
-            for (int i = 0; i < numberOfTrials; i++) //printing and searching for matchies
+            for (int i = 0; i < numberOfBruteIterations; i++) //printing and searching for matchies
             {
-
                 string insertText = String.Format(("Key {0}:\t {1},{2}"), i, bruteForceVariants[i], Environment.NewLine); //line output form
 
                 if((textBox4.Text == null || textBox4.Text == "")) //when help word not provided
@@ -112,5 +113,10 @@ namespace CaesarCipher
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            numberOfBruteIterations = textBox3.Text.Length;
+            numericUpDown2.Value = numberOfBruteIterations;
+        }
     }
 }
